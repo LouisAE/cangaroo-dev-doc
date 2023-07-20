@@ -1,0 +1,55 @@
+<!doctype html><html lang=zh dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="SetupDialog类 # 此类继承自 QDialog类
+成员函数 # 公共成员函数 # bool showSetupDialog(MeasurementSetup &amp;setup)
+void addPage(QWidget *widget)
+void displayPage(QWidget *widget)
+信号 # void onShowInterfacePage(SetupDialog &amp;dlg, MeasurementInterface *mi)
+槽函数 # 公共槽函数 # void treeViewSelectionChanged(const QItemSelection & selected, const QItemSelection & deselected)
+void treeViewContextMenu(const QPoint& pos)
+公有成员函数说明 # showSetupDialog # bool showSetupDialog(MeasurementSetup &amp;setup) 被调用时会显示设置窗口
+参数：
+setup：MeasurementSetup类的引用 返回值：用户点击确定(ok)按钮关闭窗口返回true，其它情况返回false
+addPage # void addPage(QWidget *widget) 未知（猜测：和显示接口列表的框有关） 观察：程序启动时此函数会被执行多次
+displayPage # void displayPage(QWidget *widget) 未知（猜测：和显示接口列表的框有关）
+信号说明 # onShowInterfacePage # void onShowInterfacePage(SetupDialog &amp;dlg, MeasurementInterface *mi) 调试过程中未观察到此信号的发出"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="SetupDialog类"><meta property="og:description" content="SetupDialog类 # 此类继承自 QDialog类
+成员函数 # 公共成员函数 # bool showSetupDialog(MeasurementSetup &amp;setup)
+void addPage(QWidget *widget)
+void displayPage(QWidget *widget)
+信号 # void onShowInterfacePage(SetupDialog &amp;dlg, MeasurementInterface *mi)
+槽函数 # 公共槽函数 # void treeViewSelectionChanged(const QItemSelection & selected, const QItemSelection & deselected)
+void treeViewContextMenu(const QPoint& pos)
+公有成员函数说明 # showSetupDialog # bool showSetupDialog(MeasurementSetup &amp;setup) 被调用时会显示设置窗口
+参数：
+setup：MeasurementSetup类的引用 返回值：用户点击确定(ok)按钮关闭窗口返回true，其它情况返回false
+addPage # void addPage(QWidget *widget) 未知（猜测：和显示接口列表的框有关） 观察：程序启动时此函数会被执行多次
+displayPage # void displayPage(QWidget *widget) 未知（猜测：和显示接口列表的框有关）
+信号说明 # onShowInterfacePage # void onShowInterfacePage(SetupDialog &amp;dlg, MeasurementInterface *mi) 调试过程中未观察到此信号的发出"><meta property="og:type" content="article"><meta property="og:url" content="https://can-dev.louisz.top/docs/SetupDialog_class/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-07-20T21:46:26+08:00"><title>SetupDialog类 | Cangaroo自整理开发文档</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz+OQteg=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<script defer src=/zh.search.min.a377e7182b9b68fcd64f81639c581b4f937db9f2c31d05a0340b9aa5efd8be72.js integrity="sha256-o3fnGCubaPzWT4FjnFgbT5N9ufLDHQWgNAuape/YvnI=" crossorigin=anonymous></script>
+<script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Cangaroo自整理开发文档</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=搜索 aria-label=搜索 maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/>首页</a></li><li><a href=/docs/>SetupDialog模块</a><ul><li><a href=/docs/SetupDialog_class/ class=active>SetupDialog类</a></li></ul></li></ul><ul><li><a href=https://github.com/alex-shpak/hugo-book target=_blank rel=noopener>Github</a></li><li><a href=https://themes.gohugo.io/hugo-book/ target=_blank rel=noopener>Hugo Themes</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>SetupDialog类</strong>
+<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#setupdialog类>SetupDialog类</a><ul><li><a href=#成员函数>成员函数</a><ul><li><a href=#公共成员函数>公共成员函数</a></li></ul></li><li><a href=#信号>信号</a></li><li><a href=#槽函数>槽函数</a><ul><li><a href=#公共槽函数>公共槽函数</a></li></ul></li><li><a href=#公有成员函数说明>公有成员函数说明</a><ul><li><a href=#showsetupdialog>showSetupDialog</a></li><li><a href=#addpage>addPage</a></li><li><a href=#displaypage>displayPage</a></li></ul></li><li><a href=#信号说明>信号说明</a><ul><li><a href=#onshowinterfacepage>onShowInterfacePage</a></li></ul></li><li><a href=#槽函数说明>槽函数说明</a><ul><li><a href=#treeviewselectionchanged>treeViewSelectionChanged</a></li><li><a href=#treeviewcontextmenu>treeViewContextMenu</a></li></ul></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=setupdialog类>SetupDialog类
+<a class=anchor href=#setupdialog%e7%b1%bb>#</a></h1><p>此类继承自
+<a href=https://doc.qt.io/qt-5/qdialog.html>QDialog</a>类</p><h2 id=成员函数>成员函数
+<a class=anchor href=#%e6%88%90%e5%91%98%e5%87%bd%e6%95%b0>#</a></h2><hr><h3 id=公共成员函数>公共成员函数
+<a class=anchor href=#%e5%85%ac%e5%85%b1%e6%88%90%e5%91%98%e5%87%bd%e6%95%b0>#</a></h3><p><a href=https://can-dev.louisz.top/docs/SetupDialog_class/#showsetupdialog>bool showSetupDialog(MeasurementSetup &amp;setup)</a></p><p><a href=https://can-dev.louisz.top/docs/SetupDialog_class/#addpage>void addPage(QWidget *widget)</a></p><p><a href=https://can-dev.louisz.top/docs/SetupDialog_class/#displaypage>void displayPage(QWidget *widget)</a></p><h2 id=信号>信号
+<a class=anchor href=#%e4%bf%a1%e5%8f%b7>#</a></h2><hr><p><a href=https://can-dev.louisz.top/docs/SetupDialog_class/#onshowinterfacepage>void onShowInterfacePage(SetupDialog &amp;dlg, MeasurementInterface *mi)</a></p><h2 id=槽函数>槽函数
+<a class=anchor href=#%e6%a7%bd%e5%87%bd%e6%95%b0>#</a></h2><hr><h3 id=公共槽函数>公共槽函数
+<a class=anchor href=#%e5%85%ac%e5%85%b1%e6%a7%bd%e5%87%bd%e6%95%b0>#</a></h3><p><a href=https://can-dev.louisz.top/docs/SetupDialog_class/#treeviewselectionchanged>void treeViewSelectionChanged(const QItemSelection & selected, const QItemSelection & deselected)</a></p><p><a href=https://can-dev.louisz.top/docs/SetupDialog_class/#treeviewcontextmenu>void treeViewContextMenu(const QPoint& pos)</a></p><h2 id=公有成员函数说明>公有成员函数说明
+<a class=anchor href=#%e5%85%ac%e6%9c%89%e6%88%90%e5%91%98%e5%87%bd%e6%95%b0%e8%af%b4%e6%98%8e>#</a></h2><h3 id=showsetupdialog>showSetupDialog
+<a class=anchor href=#showsetupdialog>#</a></h3><hr><pre><code>bool showSetupDialog(MeasurementSetup &amp;setup)
+</code></pre><p>被调用时会显示设置窗口</p><p>参数：</p><ul><li>setup：MeasurementSetup类的引用</li></ul><p>返回值：用户点击确定(ok)按钮关闭窗口返回true，其它情况返回false</p><h3 id=addpage>addPage
+<a class=anchor href=#addpage>#</a></h3><hr><pre><code>void addPage(QWidget *widget)
+</code></pre><p>未知（猜测：和显示接口列表的框有关）
+观察：程序启动时此函数会被执行多次</p><h3 id=displaypage>displayPage
+<a class=anchor href=#displaypage>#</a></h3><hr><pre><code>void displayPage(QWidget *widget)
+</code></pre><p>未知（猜测：和显示接口列表的框有关）</p><h2 id=信号说明>信号说明
+<a class=anchor href=#%e4%bf%a1%e5%8f%b7%e8%af%b4%e6%98%8e>#</a></h2><hr><h3 id=onshowinterfacepage>onShowInterfacePage
+<a class=anchor href=#onshowinterfacepage>#</a></h3><pre><code>void onShowInterfacePage(SetupDialog &amp;dlg, MeasurementInterface *mi)
+</code></pre><p>调试过程中未观察到此信号的发出</p><h2 id=槽函数说明>槽函数说明
+<a class=anchor href=#%e6%a7%bd%e5%87%bd%e6%95%b0%e8%af%b4%e6%98%8e>#</a></h2><hr><h3 id=treeviewselectionchanged>treeViewSelectionChanged
+<a class=anchor href=#treeviewselectionchanged>#</a></h3><pre><code>void treeViewSelectionChanged(const QItemSelection &amp; selected, const QItemSelection &amp; deselected)
+</code></pre><p>根据传入的两个参数的类型，在窗口右侧显示相应的设置页面。</p><p>调试过程中发现：当用户在窗口左侧列表选择项目时会触发此槽函数。</p><h3 id=treeviewcontextmenu>treeViewContextMenu
+<a class=anchor href=#treeviewcontextmenu>#</a></h3><pre><code>void treeViewContextMenu(const QPoint&amp; pos)
+</code></pre><p>调试过程中未观察到此槽函数的触发。</p><p>猜测和窗口显示的位置有关。</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/alex-shpak/hugo-book/commit/4d164b6aa7f7764d281cbfa68c9046679ffb68b4 title='最后修改者 LouisZ | July 20, 2023' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
+<span>July 20, 2023</span></a></div><div><a class="flex align-center" href=https://github.com/alex-shpak/hugo-book/edit/main/exampleSite/content/docs/SetupDialog_class.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
+<span>编辑本页</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#setupdialog类>SetupDialog类</a><ul><li><a href=#成员函数>成员函数</a><ul><li><a href=#公共成员函数>公共成员函数</a></li></ul></li><li><a href=#信号>信号</a></li><li><a href=#槽函数>槽函数</a><ul><li><a href=#公共槽函数>公共槽函数</a></li></ul></li><li><a href=#公有成员函数说明>公有成员函数说明</a><ul><li><a href=#showsetupdialog>showSetupDialog</a></li><li><a href=#addpage>addPage</a></li><li><a href=#displaypage>displayPage</a></li></ul></li><li><a href=#信号说明>信号说明</a><ul><li><a href=#onshowinterfacepage>onShowInterfacePage</a></li></ul></li><li><a href=#槽函数说明>槽函数说明</a><ul><li><a href=#treeviewselectionchanged>treeViewSelectionChanged</a></li><li><a href=#treeviewcontextmenu>treeViewContextMenu</a></li></ul></li></ul></li></ul></nav></div></aside></main></body></html>
