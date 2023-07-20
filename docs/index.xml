@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docs on Cangaroo自整理开发文档</title><link>https://can-dev.louisz.top/docs/</link><description>Recent content in Docs on Cangaroo自整理开发文档</description><generator>Hugo -- gohugo.io</generator><language>zh</language><atom:link href="https://can-dev.louisz.top/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>SetupDialog类</title><link>https://can-dev.louisz.top/docs/SetupDialog_class/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://can-dev.louisz.top/docs/SetupDialog_class/</guid><description>SetupDialog类 # 此类继承自 QDialog类
-成员函数 # 公共成员函数 # bool showSetupDialog(MeasurementSetup &amp;amp;setup)
-void addPage(QWidget *widget)
-void displayPage(QWidget *widget)
-信号 # void onShowInterfacePage(SetupDialog &amp;amp;dlg, MeasurementInterface *mi)
-槽函数 # 公共槽函数 # void treeViewSelectionChanged(const QItemSelection &amp;amp; selected, const QItemSelection &amp;amp; deselected)
-void treeViewContextMenu(const QPoint&amp;amp; pos)
-公有成员函数说明 # showSetupDialog # bool showSetupDialog(MeasurementSetup &amp;amp;setup) 被调用时会显示设置窗口
-参数：
-setup：MeasurementSetup类的引用 返回值：用户点击确定(ok)按钮关闭窗口返回true，其它情况返回false
-addPage # void addPage(QWidget *widget) 未知（猜测：和显示接口列表的框有关） 观察：程序启动时此函数会被执行多次
-displayPage # void displayPage(QWidget *widget) 未知（猜测：和显示接口列表的框有关）
-信号说明 # onShowInterfacePage # void onShowInterfacePage(SetupDialog &amp;amp;dlg, MeasurementInterface *mi) 调试过程中未观察到此信号的发出</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docs on Cangaroo自整理开发文档</title><link>https://can-dev.louisz.top/docs/</link><description>Recent content in Docs on Cangaroo自整理开发文档</description><generator>Hugo -- gohugo.io</generator><language>zh</language><atom:link href="https://can-dev.louisz.top/docs/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
