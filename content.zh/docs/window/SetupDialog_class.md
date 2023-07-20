@@ -10,24 +10,24 @@ type: docs
 
 ---
 ### 公共成员函数
-[bool showSetupDialog(MeasurementSetup &setup)]({{% ref "/docs/SetupDialog_class.md#showsetupdialog" %}})
+[bool showSetupDialog(MeasurementSetup &setup)]({{% ref "/docs/window/SetupDialog_class.md#showsetupdialog" %}})
 
-[void addPage(QWidget *widget)]({{% ref "/docs/SetupDialog_class.md#addpage" %}})
+[void addPage(QWidget *widget)]({{% ref "/docs/window/SetupDialog_class.md#addpage" %}})
 
-[void displayPage(QWidget *widget)]({{% ref "/docs/SetupDialog_class.md#displaypage" %}})
+[void displayPage(QWidget *widget)]({{% ref "/docs/window/SetupDialog_class.md#displaypage" %}})
 
 ## 信号
 
 ---
-[void onShowInterfacePage(SetupDialog &dlg, MeasurementInterface *mi)]({{% ref "/docs/SetupDialog_class.md#onshowinterfacepage" %}})
+[void onShowInterfacePage(SetupDialog &dlg, MeasurementInterface *mi)]({{% ref "/docs/window/SetupDialog_class.md#onshowinterfacepage" %}})
 
 ## 槽函数
 
 ---
 ### 公共槽函数
-[void treeViewSelectionChanged(const QItemSelection & selected, const QItemSelection & deselected)]({{% ref "/docs/SetupDialog_class.md#treeviewselectionchanged" %}})
+[void treeViewSelectionChanged(const QItemSelection & selected, const QItemSelection & deselected)]({{% ref "/docs/window/SetupDialog_class.md#treeviewselectionchanged" %}})
 
-[void treeViewContextMenu(const QPoint& pos)]({{% ref "/docs/SetupDialog_class.md#treeviewcontextmenu" %}})
+[void treeViewContextMenu(const QPoint& pos)]({{% ref "/docs/window/SetupDialog_class.md#treeviewcontextmenu" %}})
 
 ## 公有成员函数说明
 
