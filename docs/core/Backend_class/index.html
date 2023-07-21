@@ -1,0 +1,112 @@
+<!doctype html><html lang=zh dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Backend类 # 此类继承自 QObject类
+成员函数 # 公共成员函数 # static Backend &amp;instance()
+void addCanDriver(CanDriver &amp;driver)
+bool startMeasurement()
+void stopMeasurement()
+bool isMeasurementRunning() const
+double getTimestampAtMeasurementStart() const
+uint64_t getUsecsAtMeasurementStart() const
+uint64_t getNsecsSinceMeasurementStart() const
+uint64_t getUsecsSinceMeasurementStart() const
+void logMessage(const QDateTime dt, const log_level_t level, const QString msg)
+MeasurementSetup &amp;getSetup()
+void loadDefaultSetup(MeasurementSetup &amp;setup)
+void setDefaultSetup()
+void setSetup(MeasurementSetup &amp;new_setup)
+double currentTimeStamp() const
+CanTrace *getTrace()
+void clearTrace()
+CanDbMessage *findDbMessage(const CanMessage &amp;msg) const
+CanInterfaceIdList getInterfaceList()
+CanDriver *getDriverById(CanInterfaceId id)"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="Backend类"><meta property="og:description" content="Backend类 # 此类继承自 QObject类
+成员函数 # 公共成员函数 # static Backend &amp;instance()
+void addCanDriver(CanDriver &amp;driver)
+bool startMeasurement()
+void stopMeasurement()
+bool isMeasurementRunning() const
+double getTimestampAtMeasurementStart() const
+uint64_t getUsecsAtMeasurementStart() const
+uint64_t getNsecsSinceMeasurementStart() const
+uint64_t getUsecsSinceMeasurementStart() const
+void logMessage(const QDateTime dt, const log_level_t level, const QString msg)
+MeasurementSetup &amp;getSetup()
+void loadDefaultSetup(MeasurementSetup &amp;setup)
+void setDefaultSetup()
+void setSetup(MeasurementSetup &amp;new_setup)
+double currentTimeStamp() const
+CanTrace *getTrace()
+void clearTrace()
+CanDbMessage *findDbMessage(const CanMessage &amp;msg) const
+CanInterfaceIdList getInterfaceList()
+CanDriver *getDriverById(CanInterfaceId id)"><meta property="og:type" content="article"><meta property="og:url" content="https://can-dev.louisz.top/docs/core/Backend_class/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-07-21T18:33:07+08:00"><title>Backend类 | Cangaroo自整理开发文档</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css integrity="sha256-+N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<script defer src=/zh.search.min.43d98e61d580a51022a72fb4a20c82f0a5eb642f404a2ec84b4206918e25e02d.js integrity="sha256-Q9mOYdWApRAipy+0ogyC8KXrZC9ASi7IS0IGkY4l4C0=" crossorigin=anonymous></script>
+<script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Cangaroo自整理开发文档</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=搜索 aria-label=搜索 maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/>首页</a></li><li><a href=/docs/window/>Window</a><ul><li><a href=/docs/window/SetupDialog_class/>SetupDialog类</a></li></ul></li><li><a href=/docs/core/>Core</a><ul><li><a href=/docs/core/Backend_class/ class=active>Backend类</a></li></ul></li></ul><ul><li><a href=https://github.com/LouisAE/cangaroo-dev-doc target=_blank rel=noopener>🔗本文档的Github仓库</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Backend类</strong>
+<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#backend类>Backend类</a><ul><li><a href=#成员函数>成员函数</a><ul><li><a href=#公共成员函数>公共成员函数</a></li></ul></li><li><a href=#信号>信号</a></li><li><a href=#公共成员函数说明>公共成员函数说明</a><ul><li><a href=#instance>instance</a></li><li><a href=#addcandriver>addCanDriver</a></li><li><a href=#startmeasurement>startMeasurement</a></li><li><a href=#stopmeasurement>stopMeasurement</a></li><li><a href=#ismeasurementrunning>isMeasurementRunning</a></li><li><a href=#gettimestampatmeasurementstart>getTimestampAtMeasurementStart</a></li><li><a href=#getusecsatmeasurementstart>getUsecsAtMeasurementStart</a></li><li><a href=#getnsecssincemeasurementstart>getNsecsSinceMeasurementStart</a></li><li><a href=#getusecssincemeasurementstart>getUsecsSinceMeasurementStart</a></li><li><a href=#logmessage>logMessage</a></li><li><a href=#getsetup>getSetup</a></li><li><a href=#loaddefaultsetup>loadDefaultSetup</a></li><li><a href=#setdefaultsetup>setDefaultSetup</a></li><li><a href=#setsetup>setSetup</a></li><li><a href=#currenttimestamp>currentTimeStamp</a></li><li><a href=#gettrace>getTrace</a></li><li><a href=#cleartrace>clearTrace</a></li><li><a href=#finddbmessage>findDbMessage</a></li><li><a href=#getinterfacelist>getInterfaceList</a></li><li><a href=#getdriverbyid>getDriverById</a></li><li><a href=#getinterfacebyid>getInterfaceById</a></li><li><a href=#getinterfacename>getInterfaceName</a></li><li><a href=#getdrivername>getDriverName</a></li><li><a href=#getdriverbyname>getDriverByName</a></li><li><a href=#getinterfacebydriverandname>getInterfaceByDriverAndName</a></li><li><a href=#loaddbc>loadDbc</a></li><li><a href=#clearlog>clearLog</a></li><li><a href=#getlogmodel>getLogModel</a></li></ul></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=backend类>Backend类
+<a class=anchor href=#backend%e7%b1%bb>#</a></h1><p>此类继承自
+<a href=https://doc.qt.io/qt-5/qobject.html>QObject</a>类</p><h2 id=成员函数>成员函数
+<a class=anchor href=#%e6%88%90%e5%91%98%e5%87%bd%e6%95%b0>#</a></h2><hr><h3 id=公共成员函数>公共成员函数
+<a class=anchor href=#%e5%85%ac%e5%85%b1%e6%88%90%e5%91%98%e5%87%bd%e6%95%b0>#</a></h3><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#instance>static Backend &amp;instance()</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#addcandriver>void addCanDriver(CanDriver &amp;driver)</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#startmeasurement>bool startMeasurement()</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#stopmeasurement>void stopMeasurement()</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#ismeasurementrunning>bool isMeasurementRunning() const</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#gettimestampatmeasurementstart>double getTimestampAtMeasurementStart() const</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#getusecsatmeasurementstart>uint64_t getUsecsAtMeasurementStart() const</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#getnsecssincemeasurementstart>uint64_t getNsecsSinceMeasurementStart() const</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#getusecssincemeasurementstart>uint64_t getUsecsSinceMeasurementStart() const</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#logmessage>void logMessage(const QDateTime dt, const log_level_t level, const QString msg)</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#getsetup>MeasurementSetup &amp;getSetup()</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#loaddefaultsetup>void loadDefaultSetup(MeasurementSetup &amp;setup)</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#setdefaultsetup>void setDefaultSetup()</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#setsetup>void setSetup(MeasurementSetup &amp;new_setup)</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#currenttimestamp>double currentTimeStamp() const</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#gettrace>CanTrace *getTrace()</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#cleartrace>void clearTrace()</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#finddbmessage>CanDbMessage *findDbMessage(const CanMessage &amp;msg) const</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#getinterfacelist>CanInterfaceIdList getInterfaceList()</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#getdriverbyid>CanDriver *getDriverById(CanInterfaceId id)</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#getinterfacebyid>CanInterface *getInterfaceById(CanInterfaceId id)</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#getinterfacename>QString getInterfaceName(CanInterfaceId id)</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#getdrivername>QString getDriverName(CanInterfaceId id)</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#getdriverbyname>CanDriver *getDriverByName(QString driverName)</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#getinterfacebydriverandname>CanInterface *getInterfaceByDriverAndName(QString driverName, QString deviceName)</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#loaddbc>pCanDb loadDbc(QString filename)</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#clearlog>void clearLog()</a></p><p><a href=https://can-dev.louisz.top/docs/core/Backend_class/#getlogmodel>LogModel &amp;getLogModel() const</a></p><h2 id=信号>信号
+<a class=anchor href=#%e4%bf%a1%e5%8f%b7>#</a></h2><hr><p>void beginMeasurement()</p><p>void endMeasurement()</p><p>void onSetupChanged()</p><p>void onLogMessage(const QDateTime dt, const log_level_t level, const QString msg)</p><p>void onSetupDialogCreated(SetupDialog &amp;dlg)</p><h2 id=公共成员函数说明>公共成员函数说明
+<a class=anchor href=#%e5%85%ac%e5%85%b1%e6%88%90%e5%91%98%e5%87%bd%e6%95%b0%e8%af%b4%e6%98%8e>#</a></h2><h3 id=instance>instance
+<a class=anchor href=#instance>#</a></h3><hr><pre><code>static Backend &amp;instance()
+</code></pre><p>静态函数，被调用时，会检查私有成员变量_instance是否为空(0)。</p><p>若为空，则创建一个Backend对象，赋值给_instance并返回。</p><p>否则，直接返回现有的Backend实例。</p><p>返回值：Backend类的实例的引用</p><h3 id=addcandriver>addCanDriver
+<a class=anchor href=#addcandriver>#</a></h3><hr><pre><code>void addCanDriver(CanDriver &amp;driver)
+</code></pre><p>添加一个Can驱动</p><h3 id=startmeasurement>startMeasurement
+<a class=anchor href=#startmeasurement>#</a></h3><hr><pre><code>bool startMeasurement()
+</code></pre><p>调用该函数会从事先设置*的网络(network)和接口(interface)列表中，
+依次获取网络及其中的Can接口，并分别启动一个新线程监听获取到的每个Can接口。</p><p>正常情况下，函数会发出beginMeasurement信号，并返回true。</p><p>*事先设置：通常是用户通过
+<a href=/docs/window/SetupDialog_class/>SetupDialog</a>设定的</p><h3 id=stopmeasurement>stopMeasurement
+<a class=anchor href=#stopmeasurement>#</a></h3><hr><pre><code>void stopMeasurement()
+</code></pre><p>调用此函数会向每一个监听线程发送停止请求，等待所有线程退出后，函数返回。</p><p>正常情况下，函数会发出endMeasurement信号，并返回true。</p><h3 id=ismeasurementrunning>isMeasurementRunning
+<a class=anchor href=#ismeasurementrunning>#</a></h3><hr><pre><code> bool isMeasurementRunning() const
+</code></pre><p>如果测量正在运行,返回true,否则返回false。</p><h3 id=gettimestampatmeasurementstart>getTimestampAtMeasurementStart
+<a class=anchor href=#gettimestampatmeasurementstart>#</a></h3><hr><pre><code>double getTimestampAtMeasurementStart() const
+</code></pre><p>返回测量开始时的时间戳。</p><h3 id=getusecsatmeasurementstart>getUsecsAtMeasurementStart
+<a class=anchor href=#getusecsatmeasurementstart>#</a></h3><hr><pre><code>uint64_t getUsecsAtMeasurementStart() const
+</code></pre><p>返回测量开始时的微秒数。</p><h3 id=getnsecssincemeasurementstart>getNsecsSinceMeasurementStart
+<a class=anchor href=#getnsecssincemeasurementstart>#</a></h3><hr><pre><code>uint64_t getNsecsSinceMeasurementStart() const
+</code></pre><p>返回测量开始后经过的纳秒数。</p><h3 id=getusecssincemeasurementstart>getUsecsSinceMeasurementStart
+<a class=anchor href=#getusecssincemeasurementstart>#</a></h3><hr><pre><code>uint64_t getUsecsSinceMeasurementStart() const
+</code></pre><p>返回测量开始后经过的微秒数。</p><h3 id=logmessage>logMessage
+<a class=anchor href=#logmessage>#</a></h3><hr><pre><code>void logMessage(const QDateTime dt, const log_level_t level, const QString msg) 
+</code></pre><p>将日志消息添加到日志模型(LogModel)中。具体实现是发送onLogMessage信号。</p><p>参数：</p><ul><li>dt: 日志消息的时间</li><li>level: 日志消息的级别</li><li>msg: 日志消息的内容</li></ul><h3 id=getsetup>getSetup
+<a class=anchor href=#getsetup>#</a></h3><hr><pre><code>MeasurementSetup &amp;getSetup()
+</code></pre><p>返回测量设置(MeasurementSetup)。具体实现是返回私有成员变量_setup。</p><h3 id=loaddefaultsetup>loadDefaultSetup
+<a class=anchor href=#loaddefaultsetup>#</a></h3><hr><pre><code>void loadDefaultSetup(MeasurementSetup &amp;setup)
+</code></pre><p>加载默认设置到参数setup指定的MeasurementSetup对象中（尚未清楚何谓默认设置）。</p><h3 id=setdefaultsetup>setDefaultSetup
+<a class=anchor href=#setdefaultsetup>#</a></h3><hr><pre><code>void setDefaultSetup()
+</code></pre><p>相当于调用loadDefaultSetup(_setup)。</p><h3 id=setsetup>setSetup
+<a class=anchor href=#setsetup>#</a></h3><hr><pre><code>void setSetup(MeasurementSetup &amp;new_setup)
+</code></pre><p>把参数new_setup中的设置应用到私有成员变量_setup中。</p><h3 id=currenttimestamp>currentTimeStamp
+<a class=anchor href=#currenttimestamp>#</a></h3><hr><pre><code>double currentTimeStamp() const
+</code></pre><p>返回当前时间戳（单位：毫秒）。</p><h3 id=gettrace>getTrace
+<a class=anchor href=#gettrace>#</a></h3><hr><pre><code>CanTrace *getTrace()
+</code></pre><p>返回私有成员变量_trace。（目前未研究Cantrace类）</p><h3 id=cleartrace>clearTrace
+<a class=anchor href=#cleartrace>#</a></h3><hr><pre><code>void clearTrace()
+</code></pre><p>清除私有成员变量_trace。（目前未研究Cantrace类）</p><h3 id=finddbmessage>findDbMessage
+<a class=anchor href=#finddbmessage>#</a></h3><hr><pre><code>CanDbMessage *findDbMessage(const CanMessage &amp;msg) const
+</code></pre><p>未研究Canmeasurement类</p><h3 id=getinterfacelist>getInterfaceList
+<a class=anchor href=#getinterfacelist>#</a></h3><hr><pre><code>CanInterfaceIdList getInterfaceList()
+</code></pre><p>返回当前的接口(Interface)列表。</p><h3 id=getdriverbyid>getDriverById
+<a class=anchor href=#getdriverbyid>#</a></h3><hr><pre><code>CanDriver *getDriverById(CanInterfaceId id)
+</code></pre><p>返回指定id的Interface对应的Can驱动。如果不存在，属于严重错误</p><h3 id=getinterfacebyid>getInterfaceById
+<a class=anchor href=#getinterfacebyid>#</a></h3><hr><pre><code>CanInterface *getInterfaceById(CanInterfaceId id)
+</code></pre><p>返回指定id的Interface，如果不存在则返回0。</p><h3 id=getinterfacename>getInterfaceName
+<a class=anchor href=#getinterfacename>#</a></h3><hr><pre><code>QString getInterfaceName(CanInterfaceId id)
+</code></pre><p>返回指定id的接口(interface)的名称。如果不存在则返回空字符串，属于严重错误（试图获取不存在的接口的名称）。</p><h3 id=getdrivername>getDriverName
+<a class=anchor href=#getdrivername>#</a></h3><hr><pre><code>QString getDriverName(CanInterfaceId id)
+</code></pre><p>返回指定id的接口(interface)的驱动(driver)的名称。如果不存在则返回空字符串。</p><h3 id=getdriverbyname>getDriverByName
+<a class=anchor href=#getdriverbyname>#</a></h3><hr><pre><code>CanDriver *getDriverByName(QString driverName)
+</code></pre><p>返回指定名称的Can驱动。如果不存在则返回0。</p><h3 id=getinterfacebydriverandname>getInterfaceByDriverAndName
+<a class=anchor href=#getinterfacebydriverandname>#</a></h3><hr><pre><code>CanInterface *getInterfaceByDriverAndName(QString driverName, QString deviceName)
+</code></pre><p>在指定名称的driver中查找指定名称的Interface,并返回其名称。如果不存在则返回0。</p><h3 id=loaddbc>loadDbc
+<a class=anchor href=#loaddbc>#</a></h3><hr><pre><code>pCanDb loadDbc(QString filename)
+</code></pre><p>从指定的dbc数据库中加载数据并返回。</p><h3 id=clearlog>clearLog
+<a class=anchor href=#clearlog>#</a></h3><hr><pre><code>void clearLog()
+</code></pre><p>清除日志模型(LogModel)中的所有日志。</p><h3 id=getlogmodel>getLogModel
+<a class=anchor href=#getlogmodel>#</a></h3><hr><pre><code>LogModel &amp;getLogModel() const
+</code></pre><p>返回私有成员变量_logModel指向的内存地址的内容。</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/LouisAE/cangaroo-dev-doc/commit/f9c65f07a43a577d540ec69911775e7ec0a2ee5a title='最后修改者 LouisZ | July 21, 2023' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
+<span>July 21, 2023</span></a></div><div><a class="flex align-center" href=https://github.com/LouisAE/cangaroo-dev-doc/edit/main/content.zh/docs/core/Backend_class.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
+<span>编辑本页</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#backend类>Backend类</a><ul><li><a href=#成员函数>成员函数</a><ul><li><a href=#公共成员函数>公共成员函数</a></li></ul></li><li><a href=#信号>信号</a></li><li><a href=#公共成员函数说明>公共成员函数说明</a><ul><li><a href=#instance>instance</a></li><li><a href=#addcandriver>addCanDriver</a></li><li><a href=#startmeasurement>startMeasurement</a></li><li><a href=#stopmeasurement>stopMeasurement</a></li><li><a href=#ismeasurementrunning>isMeasurementRunning</a></li><li><a href=#gettimestampatmeasurementstart>getTimestampAtMeasurementStart</a></li><li><a href=#getusecsatmeasurementstart>getUsecsAtMeasurementStart</a></li><li><a href=#getnsecssincemeasurementstart>getNsecsSinceMeasurementStart</a></li><li><a href=#getusecssincemeasurementstart>getUsecsSinceMeasurementStart</a></li><li><a href=#logmessage>logMessage</a></li><li><a href=#getsetup>getSetup</a></li><li><a href=#loaddefaultsetup>loadDefaultSetup</a></li><li><a href=#setdefaultsetup>setDefaultSetup</a></li><li><a href=#setsetup>setSetup</a></li><li><a href=#currenttimestamp>currentTimeStamp</a></li><li><a href=#gettrace>getTrace</a></li><li><a href=#cleartrace>clearTrace</a></li><li><a href=#finddbmessage>findDbMessage</a></li><li><a href=#getinterfacelist>getInterfaceList</a></li><li><a href=#getdriverbyid>getDriverById</a></li><li><a href=#getinterfacebyid>getInterfaceById</a></li><li><a href=#getinterfacename>getInterfaceName</a></li><li><a href=#getdrivername>getDriverName</a></li><li><a href=#getdriverbyname>getDriverByName</a></li><li><a href=#getinterfacebydriverandname>getInterfaceByDriverAndName</a></li><li><a href=#loaddbc>loadDbc</a></li><li><a href=#clearlog>clearLog</a></li><li><a href=#getlogmodel>getLogModel</a></li></ul></li></ul></li></ul></nav></div></aside></main></body></html>

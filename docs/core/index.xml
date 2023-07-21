@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>core文件夹 on Cangaroo自整理开发文档</title><link>https://can-dev.louisz.top/docs/core/</link><description>Recent content in core文件夹 on Cangaroo自整理开发文档</description><generator>Hugo -- gohugo.io</generator><language>zh</language><atom:link href="https://can-dev.louisz.top/docs/core/index.xml" rel="self" type="application/rss+xml"/><item><title>Backend类</title><link>https://can-dev.louisz.top/docs/core/Backend_class/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://can-dev.louisz.top/docs/core/Backend_class/</guid><description>Backend类 # 此类继承自 QObject类
+成员函数 # 公共成员函数 # static Backend &amp;amp;instance()
+void addCanDriver(CanDriver &amp;amp;driver)
+bool startMeasurement()
+void stopMeasurement()
+bool isMeasurementRunning() const
+double getTimestampAtMeasurementStart() const
+uint64_t getUsecsAtMeasurementStart() const
+uint64_t getNsecsSinceMeasurementStart() const
+uint64_t getUsecsSinceMeasurementStart() const
+void logMessage(const QDateTime dt, const log_level_t level, const QString msg)
+MeasurementSetup &amp;amp;getSetup()
+void loadDefaultSetup(MeasurementSetup &amp;amp;setup)
+void setDefaultSetup()
+void setSetup(MeasurementSetup &amp;amp;new_setup)
+double currentTimeStamp() const
+CanTrace *getTrace()
+void clearTrace()
+CanDbMessage *findDbMessage(const CanMessage &amp;amp;msg) const
+CanInterfaceIdList getInterfaceList()
+CanDriver *getDriverById(CanInterfaceId id)</description></item></channel></rss>
