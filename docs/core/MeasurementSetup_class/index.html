@@ -1,0 +1,64 @@
+<!doctype html><html lang=zh dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="MeasurementSetup类 # 此类继承自 QObject类
+成员函数 # 公共成员函数 # void clear()
+CanDbMessage *findDbMessage(const CanMessage &amp;msg) const
+[int countNetworks() const]( https://can-dev.louisz.top/docs/core/CanTrace_class/#countnetworks
+MeasurementNetwork *getNetwork(int index) const
+MeasurementNetwork *getNetworkByName(QString name) const
+QList<MeasurementNetwork*> getNetworks()
+MeasurementNetwork *createNetwork()
+void removeNetwork(MeasurementNetwork *network)
+void cloneFrom(MeasurementSetup &amp;origin)
+bool saveXML(Backend &amp;backend, QDomDocument &amp;xml, QDomElement &amp;root)
+bool loadXML(Backend &amp;backend, QDomElement &amp;el)
+公共成员函数说明 # clear # void clear() 清除所有网络
+findDbMessage # CanDbMessage *findDbMessage(const CanMessage &amp;msg) const 根据msg唯一(?)的ID查找数据库中的消息，找到则返回指向该消息的指针，否则返回nullptr
+countNetworks # int countNetworks() const 返回网络(network)数量"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="MeasurementSetup类"><meta property="og:description" content="MeasurementSetup类 # 此类继承自 QObject类
+成员函数 # 公共成员函数 # void clear()
+CanDbMessage *findDbMessage(const CanMessage &amp;msg) const
+[int countNetworks() const]( https://can-dev.louisz.top/docs/core/CanTrace_class/#countnetworks
+MeasurementNetwork *getNetwork(int index) const
+MeasurementNetwork *getNetworkByName(QString name) const
+QList<MeasurementNetwork*> getNetworks()
+MeasurementNetwork *createNetwork()
+void removeNetwork(MeasurementNetwork *network)
+void cloneFrom(MeasurementSetup &amp;origin)
+bool saveXML(Backend &amp;backend, QDomDocument &amp;xml, QDomElement &amp;root)
+bool loadXML(Backend &amp;backend, QDomElement &amp;el)
+公共成员函数说明 # clear # void clear() 清除所有网络
+findDbMessage # CanDbMessage *findDbMessage(const CanMessage &amp;msg) const 根据msg唯一(?)的ID查找数据库中的消息，找到则返回指向该消息的指针，否则返回nullptr
+countNetworks # int countNetworks() const 返回网络(network)数量"><meta property="og:type" content="article"><meta property="og:url" content="https://can-dev.louisz.top/docs/core/MeasurementSetup_class/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-07-24T16:54:05+08:00"><title>MeasurementSetup类 | Cangaroo自整理开发文档</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css integrity="sha256-+N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<script defer src=/zh.search.min.b99ce3d00f0000e76f5d47ab42611585a2a6acf7d207c8598ac5f58d028c79f9.js integrity="sha256-uZzj0A8AAOdvXUerQmEVhaKmrPfSB8hZisX1jQKMefk=" crossorigin=anonymous></script>
+<script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Cangaroo自整理开发文档</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=搜索 aria-label=搜索 maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/>首页</a></li><li><a href=/docs/window/>Window</a><ul><li><a href=/docs/window/SetupDialog_class/>SetupDialog类</a></li></ul></li><li><a href=/docs/core/>Core</a><ul><li><a href=/docs/core/Backend_class/>Backend类</a></li><li><a href=/docs/core/CanTrace_class/>CanTrace类</a></li><li><a href=/docs/core/MeasurementSetup_class/ class=active>MeasurementSetup类</a></li></ul></li><li><a href=/docs/driver/>Driver</a><ul><li><a href=/docs/driver/CanListener_class/>CanListener类</a></li></ul></li></ul><ul><li><a href=https://github.com/LouisAE/cangaroo-dev-doc target=_blank rel=noopener>🔗本文档的Github仓库</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>MeasurementSetup类</strong>
+<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#measurementsetup类>MeasurementSetup类</a><ul><li><a href=#成员函数>成员函数</a><ul><li><a href=#公共成员函数>公共成员函数</a></li></ul></li><li><a href=#公共成员函数说明>公共成员函数说明</a><ul><li><a href=#clear>clear</a></li><li><a href=#finddbmessage>findDbMessage</a></li><li><a href=#countnetworks>countNetworks</a></li><li><a href=#getnetwork>getNetwork</a></li><li><a href=#getnetworkbyname>getNetworkByName</a></li><li><a href=#getnetworks>getNetworks</a></li><li><a href=#createnetwork>createNetwork</a></li><li><a href=#removenetwork>removeNetwork</a></li><li><a href=#clonefrom>cloneFrom</a></li><li><a href=#savexml>saveXML</a></li><li><a href=#loadxml>loadXML</a></li></ul></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=measurementsetup类>MeasurementSetup类
+<a class=anchor href=#measurementsetup%e7%b1%bb>#</a></h1><p>此类继承自
+<a href=https://doc.qt.io/qt-5/qobject.html>QObject</a>类</p><h2 id=成员函数>成员函数
+<a class=anchor href=#%e6%88%90%e5%91%98%e5%87%bd%e6%95%b0>#</a></h2><hr><h3 id=公共成员函数>公共成员函数
+<a class=anchor href=#%e5%85%ac%e5%85%b1%e6%88%90%e5%91%98%e5%87%bd%e6%95%b0>#</a></h3><p><a href=https://can-dev.louisz.top/docs/core/CanTrace_class/#clear>void clear()</a></p><p><a href=https://can-dev.louisz.top/docs/core/CanTrace_class/#finddbmessage>CanDbMessage *findDbMessage(const CanMessage &amp;msg) const</a></p><p>[int countNetworks() const](
+<a href=https://can-dev.louisz.top/docs/core/CanTrace_class/#countnetworks>https://can-dev.louisz.top/docs/core/CanTrace_class/#countnetworks</a></p><p><a href=https://can-dev.louisz.top/docs/core/MeasurementSetup_class/#getnetwork>MeasurementNetwork *getNetwork(int index) const</a></p><p><a href=https://can-dev.louisz.top/docs/core/MeasurementSetup_class/#getnetworkbyname>MeasurementNetwork *getNetworkByName(QString name) const</a></p><p><a href=https://can-dev.louisz.top/docs/core/MeasurementSetup_class/#getnetworks>QList&lt;MeasurementNetwork*> getNetworks()</a></p><p><a href=https://can-dev.louisz.top/docs/core/MeasurementSetup_class/#createnetwork>MeasurementNetwork *createNetwork()</a></p><p><a href=https://can-dev.louisz.top/docs/core/MeasurementSetup_class/#removenetwork>void removeNetwork(MeasurementNetwork *network)</a></p><p><a href=https://can-dev.louisz.top/docs/core/MeasurementSetup_class/#clonefrom>void cloneFrom(MeasurementSetup &amp;origin)</a></p><p><a href=https://can-dev.louisz.top/docs/core/MeasurementSetup_class/#savexml>bool saveXML(Backend &amp;backend, QDomDocument &amp;xml, QDomElement &amp;root)</a></p><p><a href=https://can-dev.louisz.top/docs/core/MeasurementSetup_class/#loadxml>bool loadXML(Backend &amp;backend, QDomElement &amp;el)</a></p><h2 id=公共成员函数说明>公共成员函数说明
+<a class=anchor href=#%e5%85%ac%e5%85%b1%e6%88%90%e5%91%98%e5%87%bd%e6%95%b0%e8%af%b4%e6%98%8e>#</a></h2><h3 id=clear>clear
+<a class=anchor href=#clear>#</a></h3><hr><pre><code>void clear()
+</code></pre><p>清除所有网络</p><h3 id=finddbmessage>findDbMessage
+<a class=anchor href=#finddbmessage>#</a></h3><hr><pre><code>CanDbMessage *findDbMessage(const CanMessage &amp;msg) const
+</code></pre><p>根据msg唯一(?)的ID查找数据库中的消息，找到则返回指向该消息的指针，否则返回nullptr</p><h3 id=countnetworks>countNetworks
+<a class=anchor href=#countnetworks>#</a></h3><hr><pre><code>int countNetworks() const
+</code></pre><p>返回网络(network)数量</p><h3 id=getnetwork>getNetwork
+<a class=anchor href=#getnetwork>#</a></h3><hr><pre><code>MeasurementNetwork *getNetwork(int index) const
+</code></pre><p>返回指定索引（或者说编号）的网络(network)</p><h3 id=getnetworkbyname>getNetworkByName
+<a class=anchor href=#getnetworkbyname>#</a></h3><hr><pre><code>MeasurementNetwork *getNetworkByName(QString name) const
+</code></pre><p>根据网络(network)名称获取对应 网络，如果获取成功，返回指向该网络的指针，失败则返回nullptr</p><h3 id=getnetworks>getNetworks
+<a class=anchor href=#getnetworks>#</a></h3><hr><pre><code>QList&lt;MeasurementNetwork*&gt; getNetworks()
+</code></pre><p>返回所有网络(network)的列表</p><h3 id=createnetwork>createNetwork
+<a class=anchor href=#createnetwork>#</a></h3><hr><pre><code>MeasurementNetwork *createNetwork()
+</code></pre><p>创建一个新的网络(network)，并返回指向该网络的指针</p><h3 id=removenetwork>removeNetwork
+<a class=anchor href=#removenetwork>#</a></h3><hr><pre><code>void removeNetwork(MeasurementNetwork *network)
+</code></pre><p>删除指定的网络(network)</p><h3 id=clonefrom>cloneFrom
+<a class=anchor href=#clonefrom>#</a></h3><hr><pre><code>void cloneFrom(MeasurementSetup &amp;origin)
+</code></pre><p>从origin复制所有内容到当前对象</p><h3 id=savexml>saveXML
+<a class=anchor href=#savexml>#</a></h3><hr><pre><code>bool saveXML(Backend &amp;backend, QDomDocument &amp;xml, QDomElement &amp;root)
+</code></pre><p>保存所有网络设置到xml文件中，保存成功返回true，否则返回false</p><h3 id=loadxml>loadXML
+<a class=anchor href=#loadxml>#</a></h3><hr><pre><code>bool loadXML(Backend &amp;backend, QDomElement &amp;el)
+</code></pre><p>从xml文件中加载网络设置，加载成功返回true，否则返回false</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/LouisAE/cangaroo-dev-doc/commit/e98fb08aa77cff182fbb5a7e17e945dc17255623 title='最后修改者 LouisZ | July 24, 2023' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
+<span>July 24, 2023</span></a></div><div><a class="flex align-center" href=https://github.com/LouisAE/cangaroo-dev-doc/edit/main/content.zh/docs/core/MeasurementSetup_class.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
+<span>编辑本页</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#measurementsetup类>MeasurementSetup类</a><ul><li><a href=#成员函数>成员函数</a><ul><li><a href=#公共成员函数>公共成员函数</a></li></ul></li><li><a href=#公共成员函数说明>公共成员函数说明</a><ul><li><a href=#clear>clear</a></li><li><a href=#finddbmessage>findDbMessage</a></li><li><a href=#countnetworks>countNetworks</a></li><li><a href=#getnetwork>getNetwork</a></li><li><a href=#getnetworkbyname>getNetworkByName</a></li><li><a href=#getnetworks>getNetworks</a></li><li><a href=#createnetwork>createNetwork</a></li><li><a href=#removenetwork>removeNetwork</a></li><li><a href=#clonefrom>cloneFrom</a></li><li><a href=#savexml>saveXML</a></li><li><a href=#loadxml>loadXML</a></li></ul></li></ul></li></ul></nav></div></aside></main></body></html>

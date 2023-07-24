@@ -30,4 +30,18 @@ bool getMuxedSignalFromCache(const CanDbSignal *signal, uint64_t *raw_value)
 clear # void clear() 清空trace
 getMessage # const CanMessage *getMessage(int idx) 返回指定行的CanMessage，若idx超出范围则返回0(nullptr)
 enqueueMessage # void enqueueMessage(const CanMessage &amp;amp;msg, bool more_to_follow=false) 把msg加入trace，如果more_to_follow为false，则执行 startTimer()
-saveCanDump # void saveCanDump(QFile &amp;amp;file) 把trace中数据保存到文件</description></item></channel></rss>
+saveCanDump # void saveCanDump(QFile &amp;amp;file) 把trace中数据保存到文件</description></item><item><title>MeasurementSetup类</title><link>https://can-dev.louisz.top/docs/core/MeasurementSetup_class/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://can-dev.louisz.top/docs/core/MeasurementSetup_class/</guid><description>MeasurementSetup类 # 此类继承自 QObject类
+成员函数 # 公共成员函数 # void clear()
+CanDbMessage *findDbMessage(const CanMessage &amp;amp;msg) const
+[int countNetworks() const]( https://can-dev.louisz.top/docs/core/CanTrace_class/#countnetworks
+MeasurementNetwork *getNetwork(int index) const
+MeasurementNetwork *getNetworkByName(QString name) const
+QList&amp;lt;MeasurementNetwork*&amp;gt; getNetworks()
+MeasurementNetwork *createNetwork()
+void removeNetwork(MeasurementNetwork *network)
+void cloneFrom(MeasurementSetup &amp;amp;origin)
+bool saveXML(Backend &amp;amp;backend, QDomDocument &amp;amp;xml, QDomElement &amp;amp;root)
+bool loadXML(Backend &amp;amp;backend, QDomElement &amp;amp;el)
+公共成员函数说明 # clear # void clear() 清除所有网络
+findDbMessage # CanDbMessage *findDbMessage(const CanMessage &amp;amp;msg) const 根据msg唯一(?)的ID查找数据库中的消息，找到则返回指向该消息的指针，否则返回nullptr
+countNetworks # int countNetworks() const 返回网络(network)数量</description></item></channel></rss>
