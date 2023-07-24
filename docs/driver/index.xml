@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>driver文件夹 on Cangaroo自整理开发文档</title><link>https://can-dev.louisz.top/docs/driver/</link><description>Recent content in driver文件夹 on Cangaroo自整理开发文档</description><generator>Hugo -- gohugo.io</generator><language>zh</language><atom:link href="https://can-dev.louisz.top/docs/driver/index.xml" rel="self" type="application/rss+xml"/><item><title>CanListener类</title><link>https://can-dev.louisz.top/docs/driver/CanListener_class/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://can-dev.louisz.top/docs/driver/CanListener_class/</guid><description>CanListener类 # 此类继承自 QObject类
+成员函数 # 公共成员函数 # CanInterfaceId getInterfaceId()
+CanInterface &amp;amp;getInterface()
+槽函数 # void run()
+void startThread()
+void requestStop()
+void waitFinish()
+公共成员函数说明 # getInterfaceId # CanInterfaceId getInterfaceId() 返回所监听的接口(Interface)的ID。
+getInterface # CanInterface &amp;amp;getInterface() 返回所监听的接口(Interface)。
+公共槽函数说明 # run # void run() 循环从所监听的接口(Interface)读取数据并输出到trace(尚未研究CanTrace)，直至全部数据读取完毕
+startThread # void startThread() 把当前CanListener关联到一个新的线程并启动，启动后执行run()函数
+requestStop # void requestStop() 设置停止标志*，会使run()函数停止读取数据并退出
+*停止标志：在run()函数中会检查此标志，若为真则退出
+waitFinish # void waitFinish() 设置停止标志并等待进程停止
+*停止标志：在run()函数中会检查此标志，若为真则退出</description></item></channel></rss>

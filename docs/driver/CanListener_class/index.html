@@ -1,0 +1,55 @@
+<!doctype html><html lang=zh dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="CanListener类 # 此类继承自 QObject类
+成员函数 # 公共成员函数 # CanInterfaceId getInterfaceId()
+CanInterface &amp;getInterface()
+槽函数 # void run()
+void startThread()
+void requestStop()
+void waitFinish()
+公共成员函数说明 # getInterfaceId # CanInterfaceId getInterfaceId() 返回所监听的接口(Interface)的ID。
+getInterface # CanInterface &amp;getInterface() 返回所监听的接口(Interface)。
+公共槽函数说明 # run # void run() 循环从所监听的接口(Interface)读取数据并输出到trace(尚未研究CanTrace)，直至全部数据读取完毕
+startThread # void startThread() 把当前CanListener关联到一个新的线程并启动，启动后执行run()函数
+requestStop # void requestStop() 设置停止标志*，会使run()函数停止读取数据并退出
+*停止标志：在run()函数中会检查此标志，若为真则退出
+waitFinish # void waitFinish() 设置停止标志并等待进程停止
+*停止标志：在run()函数中会检查此标志，若为真则退出"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="CanListener类"><meta property="og:description" content="CanListener类 # 此类继承自 QObject类
+成员函数 # 公共成员函数 # CanInterfaceId getInterfaceId()
+CanInterface &amp;getInterface()
+槽函数 # void run()
+void startThread()
+void requestStop()
+void waitFinish()
+公共成员函数说明 # getInterfaceId # CanInterfaceId getInterfaceId() 返回所监听的接口(Interface)的ID。
+getInterface # CanInterface &amp;getInterface() 返回所监听的接口(Interface)。
+公共槽函数说明 # run # void run() 循环从所监听的接口(Interface)读取数据并输出到trace(尚未研究CanTrace)，直至全部数据读取完毕
+startThread # void startThread() 把当前CanListener关联到一个新的线程并启动，启动后执行run()函数
+requestStop # void requestStop() 设置停止标志*，会使run()函数停止读取数据并退出
+*停止标志：在run()函数中会检查此标志，若为真则退出
+waitFinish # void waitFinish() 设置停止标志并等待进程停止
+*停止标志：在run()函数中会检查此标志，若为真则退出"><meta property="og:type" content="article"><meta property="og:url" content="https://can-dev.louisz.top/docs/driver/CanListener_class/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-07-24T11:40:56+08:00"><title>CanListener类 | Cangaroo自整理开发文档</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css integrity="sha256-+N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<script defer src=/zh.search.min.43da35fb587777870d9c85f41b7e56f18e88ec846281e6bc4b77db081ee6487c.js integrity="sha256-Q9o1+1h3d4cNnIX0G35W8Y6I7IRigea8S3fbCB7mSHw=" crossorigin=anonymous></script>
+<script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Cangaroo自整理开发文档</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=搜索 aria-label=搜索 maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/>首页</a></li><li><a href=/docs/window/>Window</a><ul><li><a href=/docs/window/SetupDialog_class/>SetupDialog类</a></li></ul></li><li><a href=/docs/core/>Core</a><ul><li><a href=/docs/core/Backend_class/>Backend类</a></li></ul></li><li><a href=/docs/driver/>Driver</a><ul><li><a href=/docs/driver/CanListener_class/ class=active>CanListener类</a></li></ul></li></ul><ul><li><a href=https://github.com/LouisAE/cangaroo-dev-doc target=_blank rel=noopener>🔗本文档的Github仓库</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>CanListener类</strong>
+<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#canlistener类>CanListener类</a><ul><li><a href=#成员函数>成员函数</a><ul><li><a href=#公共成员函数>公共成员函数</a></li></ul></li><li><a href=#槽函数>槽函数</a></li><li><a href=#公共成员函数说明>公共成员函数说明</a><ul><li><a href=#getinterfaceid>getInterfaceId</a></li><li><a href=#getinterface>getInterface</a></li></ul></li><li><a href=#公共槽函数说明>公共槽函数说明</a><ul><li><a href=#run>run</a></li><li><a href=#startthread>startThread</a></li><li><a href=#requeststop>requestStop</a></li><li><a href=#waitfinish>waitFinish</a></li></ul></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=canlistener类>CanListener类
+<a class=anchor href=#canlistener%e7%b1%bb>#</a></h1><p>此类继承自
+<a href=https://doc.qt.io/qt-5/qobject.html>QObject</a>类</p><h2 id=成员函数>成员函数
+<a class=anchor href=#%e6%88%90%e5%91%98%e5%87%bd%e6%95%b0>#</a></h2><hr><h3 id=公共成员函数>公共成员函数
+<a class=anchor href=#%e5%85%ac%e5%85%b1%e6%88%90%e5%91%98%e5%87%bd%e6%95%b0>#</a></h3><p><a href=https://can-dev.louisz.top/docs/driver/CanListener_class/#getinterfaceid>CanInterfaceId getInterfaceId()</a></p><p><a href=https://can-dev.louisz.top/docs/driver/CanListener_class/#getinterface>CanInterface &amp;getInterface()</a></p><h2 id=槽函数>槽函数
+<a class=anchor href=#%e6%a7%bd%e5%87%bd%e6%95%b0>#</a></h2><p><a href=https://can-dev.louisz.top/docs/driver/CanListener_class/#run>void run()</a></p><p><a href=https://can-dev.louisz.top/docs/driver/CanListener_class/#startthread>void startThread()</a></p><p><a href=https://can-dev.louisz.top/docs/driver/CanListener_class/#requeststop>void requestStop()</a></p><p><a href=https://can-dev.louisz.top/docs/driver/CanListener_class/#waitfinish>void waitFinish()</a></p><h2 id=公共成员函数说明>公共成员函数说明
+<a class=anchor href=#%e5%85%ac%e5%85%b1%e6%88%90%e5%91%98%e5%87%bd%e6%95%b0%e8%af%b4%e6%98%8e>#</a></h2><h3 id=getinterfaceid>getInterfaceId
+<a class=anchor href=#getinterfaceid>#</a></h3><hr><pre><code>CanInterfaceId getInterfaceId()
+</code></pre><p>返回所监听的接口(Interface)的ID。</p><h3 id=getinterface>getInterface
+<a class=anchor href=#getinterface>#</a></h3><hr><pre><code>CanInterface &amp;getInterface()
+</code></pre><p>返回所监听的接口(Interface)。</p><h2 id=公共槽函数说明>公共槽函数说明
+<a class=anchor href=#%e5%85%ac%e5%85%b1%e6%a7%bd%e5%87%bd%e6%95%b0%e8%af%b4%e6%98%8e>#</a></h2><h3 id=run>run
+<a class=anchor href=#run>#</a></h3><hr><pre><code>void run()
+</code></pre><p>循环从所监听的接口(Interface)读取数据并输出到trace(尚未研究CanTrace)，直至全部数据读取完毕</p><h3 id=startthread>startThread
+<a class=anchor href=#startthread>#</a></h3><hr><pre><code>void startThread()
+</code></pre><p>把当前CanListener关联到一个新的线程并启动，启动后执行run()函数</p><h3 id=requeststop>requestStop
+<a class=anchor href=#requeststop>#</a></h3><hr><pre><code>void requestStop()
+</code></pre><p>设置停止标志*，会使run()函数停止读取数据并退出</p><p>*停止标志：在run()函数中会检查此标志，若为真则退出</p><h3 id=waitfinish>waitFinish
+<a class=anchor href=#waitfinish>#</a></h3><hr><pre><code>void waitFinish()
+</code></pre><p>设置停止标志并等待进程停止</p><p>*停止标志：在run()函数中会检查此标志，若为真则退出</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/LouisAE/cangaroo-dev-doc/commit/c923cd7f17d9bd38584f865ad53a4bf8a86db899 title='最后修改者 LouisZ | July 24, 2023' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
+<span>July 24, 2023</span></a></div><div><a class="flex align-center" href=https://github.com/LouisAE/cangaroo-dev-doc/edit/main/content.zh/docs/driver/CanListener_class.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
+<span>编辑本页</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#canlistener类>CanListener类</a><ul><li><a href=#成员函数>成员函数</a><ul><li><a href=#公共成员函数>公共成员函数</a></li></ul></li><li><a href=#槽函数>槽函数</a></li><li><a href=#公共成员函数说明>公共成员函数说明</a><ul><li><a href=#getinterfaceid>getInterfaceId</a></li><li><a href=#getinterface>getInterface</a></li></ul></li><li><a href=#公共槽函数说明>公共槽函数说明</a><ul><li><a href=#run>run</a></li><li><a href=#startthread>startThread</a></li><li><a href=#requeststop>requestStop</a></li><li><a href=#waitfinish>waitFinish</a></li></ul></li></ul></li></ul></nav></div></aside></main></body></html>
