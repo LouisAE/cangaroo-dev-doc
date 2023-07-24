@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>core文件夹 on Cangaroo自整理开发文档</title><link>https://can-dev.louisz.top/docs/core/</link><description>Recent content in core文件夹 on Cangaroo自整理开发文档</description><generator>Hugo -- gohugo.io</generator><language>zh</language><atom:link href="https://can-dev.louisz.top/docs/core/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://can-dev.louisz.top/docs/core/CanTrace_class/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://can-dev.louisz.top/docs/core/CanTrace_class/</guid><description/></item><item><title>Backend类</title><link>https://can-dev.louisz.top/docs/core/Backend_class/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://can-dev.louisz.top/docs/core/Backend_class/</guid><description>Backend类 # 此类继承自 QObject类
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>core文件夹 on Cangaroo自整理开发文档</title><link>https://can-dev.louisz.top/docs/core/</link><description>Recent content in core文件夹 on Cangaroo自整理开发文档</description><generator>Hugo -- gohugo.io</generator><language>zh</language><atom:link href="https://can-dev.louisz.top/docs/core/index.xml" rel="self" type="application/rss+xml"/><item><title>Backend类</title><link>https://can-dev.louisz.top/docs/core/Backend_class/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://can-dev.louisz.top/docs/core/Backend_class/</guid><description>Backend类 # 此类继承自 QObject类
 成员函数 # 公共成员函数 # static Backend &amp;amp;instance()
 void addCanDriver(CanDriver &amp;amp;driver)
 bool startMeasurement()
@@ -18,4 +18,16 @@ CanTrace *getTrace()
 void clearTrace()
 CanDbMessage *findDbMessage(const CanMessage &amp;amp;msg) const
 CanInterfaceIdList getInterfaceList()
-CanDriver *getDriverById(CanInterfaceId id)</description></item></channel></rss>
+CanDriver *getDriverById(CanInterfaceId id)</description></item><item><title>CanTrace类</title><link>https://can-dev.louisz.top/docs/core/CanTrace_class/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://can-dev.louisz.top/docs/core/CanTrace_class/</guid><description>CanListener类 # 此类继承自 QObject类
+成员函数 # 公共成员函数 # unsigned long size()
+void clear()
+const CanMessage *getMessage(int idx)
+void enqueueMessage(const CanMessage &amp;amp;msg, bool more_to_follow=false)
+void saveCanDump(QFile &amp;amp;file)
+void saveVectorAsc(QFile &amp;amp;file)
+bool getMuxedSignalFromCache(const CanDbSignal *signal, uint64_t *raw_value)
+公共成员函数说明 # size # unsigned long size() 返回已占用的行数(?)
+clear # void clear() 清空trace
+getMessage # const CanMessage *getMessage(int idx) 返回指定行的CanMessage，若idx超出范围则返回0(nullptr)
+enqueueMessage # void enqueueMessage(const CanMessage &amp;amp;msg, bool more_to_follow=false) 把msg加入trace，如果more_to_follow为false，则执行 startTimer()
+saveCanDump # void saveCanDump(QFile &amp;amp;file) 把trace中数据保存到文件</description></item></channel></rss>
