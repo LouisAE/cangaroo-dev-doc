@@ -16,7 +16,7 @@ type: docs
 ### [core](/docs/core)
 字面上看应该是程序的核心，包括测量，Can消息处理，日志处理等内容。
 
-### driver
+### [driver](/docs/driver)
 包括各种设备的驱动
 
 ### dbc
