@@ -16,3 +16,6 @@ type: docs
 
 ### [CanTrace](/docs/core/CanTrace_class)
 保存从Can接口或数据库获取的数据
+
+### [MeasurementSetup](/docs/core/MeasurementSetup_class)
+保存Measurement Setup 对话框中的设置内容
