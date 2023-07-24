@@ -10,19 +10,19 @@ type: docs
 
 ---
 ### 公共成员函数
-[unsigned long size()]({{% ref "/docs/driver/CanListener_class.md#size" %}})
+[unsigned long size()]({{% ref "/docs/core/CanTrace_class.md#size" %}})
 
-[void clear()]({{% ref "/docs/driver/CanListener_class.md#clear" %}})
+[void clear()]({{% ref "/docs/core/CanTrace_class.md#clear" %}})
 
-[const CanMessage *getMessage(int idx)]({{% ref "/docs/driver/CanListener_class.md#getmessage" %}})
+[const CanMessage *getMessage(int idx)]({{% ref "/docs/core/CanTrace_class.md#getmessage" %}})
 
-[void enqueueMessage(const CanMessage &msg, bool more_to_follow=false)]({{% ref "/docs/driver/CanListener_class.md#enqueuemessage" %}})
+[void enqueueMessage(const CanMessage &msg, bool more_to_follow=false)]({{% ref "/docs/core/CanTrace_class.md#enqueuemessage" %}})
 
-[void saveCanDump(QFile &file)]({{% ref "/docs/driver/CanListener_class.md#savecandump" %}})
+[void saveCanDump(QFile &file)]({{% ref "/docs/core/CanTrace_class.md#savecandump" %}})
 
-[void saveVectorAsc(QFile &file)]({{% ref "/docs/driver/CanListener_class.md#savevectorasc" %}})
+[void saveVectorAsc(QFile &file)]({{% ref "/docs/core/CanTrace_class.md#savevectorasc" %}})
 
-[bool getMuxedSignalFromCache(const CanDbSignal *signal, uint64_t *raw_value)]({{% ref "/docs/driver/CanListener_class.md#getmuxedsignalfromcache" %}})
+[bool getMuxedSignalFromCache(const CanDbSignal *signal, uint64_t *raw_value)]({{% ref "/docs/core/CanTrace_class.md#getmuxedsignalfromcache" %}})
 
 ## 公共成员函数说明
 
